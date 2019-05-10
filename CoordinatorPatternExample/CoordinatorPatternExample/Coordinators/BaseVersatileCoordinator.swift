@@ -9,36 +9,36 @@
 import UIKit
 
 class BaseVersatileCoordinator: VersatileCoordinator {
-  var removeChildHandler: ((Coordinator, [AnyHashable : Any]?) -> Void)?
-  
-  var navigationController: UINavigationController?
-  
-  deinit {
-    print("BaseVersatileCoordinator deinit")
-  }
-  
-  required init(navigationController: UINavigationController?, parent: Coordinator?) {
-    self.navigationController = navigationController
-    self.parent = parent
-  }
-  
-  var presentingViewController: UIViewController?
-  
-  required init(presentingViewController: UIViewController?, parent: Coordinator?) {
-    self.presentingViewController = presentingViewController
-    self.parent = parent
-  }
-  
-  var childCoordinators: [Coordinator] = []
-  
-  var parent: Coordinator?
-  
-  
-  func start(from navigationController: UINavigationController) {
+    var removeChildHandler: ((Coordinator, [AnyHashable : Any]?) -> Void)?
     
-  }
-  
-  func start(from presentVC: UIViewController) {
+    var navigationController: UINavigationController?
     
-  }  
+    deinit {
+        print("BaseVersatileCoordinator deinit")
+    }
+    
+    required init(navigationController: UINavigationController?, parent: Coordinator?) {
+        self.navigationController = navigationController
+        self.parent = parent
+    }
+    
+    var presentingViewController: UIViewController?
+    
+    required init(presentingViewController: UIViewController?, parent: Coordinator?) {
+        self.presentingViewController = presentingViewController
+        self.parent = parent
+    }
+    
+    var childCoordinators: [Coordinator] = []
+    
+    var parent: Coordinator?
+    
+    
+    func start(from navigationController: UINavigationController) {
+        
+    }
+    
+    func start(from presentingVC: UIViewController) {
+        
+    }  
 }

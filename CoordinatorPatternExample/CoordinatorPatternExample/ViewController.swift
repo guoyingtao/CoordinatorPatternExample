@@ -9,17 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-  @IBOutlet var numberTextField: UITextField!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view.
-  }
-
-  @IBAction func viewTapped(_ sender: Any) {
-    numberTextField.resignFirstResponder()
-  }
-  
+    // MARK: navigation
+    var showOperationAdd: ((_ number: Int)->Void)?
+    var showOperationSubstraction: ((_ nubmer: Int)->Void)?
+    
+    @IBOutlet var resultField: UITextField!
+    
+    @IBOutlet var numberTextField: UITextField!
+    
+    func getNumber() -> Int {
+        if let text = numberTextField.text {
+            return Int(text) ?? 0
+        }
+        
+        return 0
+    }
+    
+    @IBAction func viewTapped(_ sender: Any) {
+        numberTextField.resignFirstResponder()
+    }
+    
+    @IBAction func operationAddTapped(_ sender: Any) {
+        showOperationAdd?(getNumber())
+    }
+    
+    @IBAction func operationSubstractionTapped(_ sender: Any) {
+        showOperationSubstraction?(getNumber())
+    }
+    
+    func setResult(_ result: Int) {
+        resultField.text = "\(result)"
+    }
 }
 

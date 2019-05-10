@@ -9,26 +9,25 @@
 import UIKit
 
 class AppCoordinator: NSObject, Coordinator {
-  var removeChildHandler: ((Coordinator, [AnyHashable : Any]?) -> Void)?
-  
-  weak var parent: Coordinator? = nil
-  
-  var childCoordinators: [Coordinator] = []
-  let navigationController: UINavigationController
-  
-  private let window: UIWindow
-  
-  init(window: UIWindow) {
-    self.window = window
-    self.navigationController = UINavigationController()
+    var removeChildHandler: ((Coordinator, [AnyHashable : Any]?) -> Void)?
     
-    self.window.rootViewController = navigationController
-    self.window.makeKeyAndVisible()
-  }
-  
-  func start() {
-    let coordinator = MainCoordinator(navigationController: self.navigationController, parent: self)
-    add(childCoordinator: coordinator)
-    coordinator.start()
-  }
+    weak var parent: Coordinator? = nil
+    var childCoordinators: [Coordinator] = []
+    
+    let navigationController: UINavigationController
+    
+    private let window: UIWindow
+    
+    init(window: UIWindow) {
+        self.window = window
+        self.navigationController = UINavigationController()
+        
+        self.window.rootViewController = navigationController
+        self.window.makeKeyAndVisible()
+    }
+    
+    func start() {
+        let coordinator = MainCoordinator(navigationController: self.navigationController, parent: self)
+        coordinate(with: coordinator)
+    }
 }

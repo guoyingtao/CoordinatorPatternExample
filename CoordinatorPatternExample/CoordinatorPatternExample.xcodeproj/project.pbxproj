@@ -16,11 +16,12 @@
 		5F7CBB0122861DB10094623A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB0022861DB10094623A /* SettingsViewController.swift */; };
 		5F7CBB06228622D20094623A /* BackwardConscious.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB04228622D20094623A /* BackwardConscious.swift */; };
 		5F7CBB07228622D20094623A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB05228622D20094623A /* Coordinator.swift */; };
-		5F7CBB0C228622FE0094623A /* BaseCoordinatorFromPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB08228622FE0094623A /* BaseCoordinatorFromPresenting.swift */; };
-		5F7CBB0D228622FE0094623A /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB09228622FE0094623A /* BaseCoordinator.swift */; };
-		5F7CBB0E228622FE0094623A /* BaseCoordinatorFromNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB0A228622FE0094623A /* BaseCoordinatorFromNavigation.swift */; };
+		5F7CBB0C228622FE0094623A /* BasePresentingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB08228622FE0094623A /* BasePresentingCoordinator.swift */; };
+		5F7CBB0D228622FE0094623A /* BaseVersatileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB09228622FE0094623A /* BaseVersatileCoordinator.swift */; };
+		5F7CBB0E228622FE0094623A /* BaseNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB0A228622FE0094623A /* BaseNavigationCoordinator.swift */; };
 		5F7CBB0F228622FE0094623A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB0B228622FE0094623A /* AppCoordinator.swift */; };
 		5F7CBB13228623370094623A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB12228623370094623A /* MainCoordinator.swift */; };
+		5F7CBB15228629BF0094623A /* OperationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB14228629BF0094623A /* OperationCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +36,12 @@
 		5F7CBB0022861DB10094623A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5F7CBB04228622D20094623A /* BackwardConscious.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackwardConscious.swift; sourceTree = "<group>"; };
 		5F7CBB05228622D20094623A /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		5F7CBB08228622FE0094623A /* BaseCoordinatorFromPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorFromPresenting.swift; sourceTree = "<group>"; };
-		5F7CBB09228622FE0094623A /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
-		5F7CBB0A228622FE0094623A /* BaseCoordinatorFromNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorFromNavigation.swift; sourceTree = "<group>"; };
+		5F7CBB08228622FE0094623A /* BasePresentingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresentingCoordinator.swift; sourceTree = "<group>"; };
+		5F7CBB09228622FE0094623A /* BaseVersatileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVersatileCoordinator.swift; sourceTree = "<group>"; };
+		5F7CBB0A228622FE0094623A /* BaseNavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationCoordinator.swift; sourceTree = "<group>"; };
 		5F7CBB0B228622FE0094623A /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		5F7CBB12228623370094623A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		5F7CBB14228629BF0094623A /* OperationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +101,11 @@
 			isa = PBXGroup;
 			children = (
 				5F7CBB0B228622FE0094623A /* AppCoordinator.swift */,
-				5F7CBB09228622FE0094623A /* BaseCoordinator.swift */,
-				5F7CBB0A228622FE0094623A /* BaseCoordinatorFromNavigation.swift */,
-				5F7CBB08228622FE0094623A /* BaseCoordinatorFromPresenting.swift */,
+				5F7CBB09228622FE0094623A /* BaseVersatileCoordinator.swift */,
+				5F7CBB0A228622FE0094623A /* BaseNavigationCoordinator.swift */,
+				5F7CBB08228622FE0094623A /* BasePresentingCoordinator.swift */,
 				5F7CBB12228623370094623A /* MainCoordinator.swift */,
+				5F7CBB14228629BF0094623A /* OperationCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -179,16 +182,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F7CBAFF22861D470094623A /* OperationViewController.swift in Sources */,
-				5F7CBB0E228622FE0094623A /* BaseCoordinatorFromNavigation.swift in Sources */,
+				5F7CBB0E228622FE0094623A /* BaseNavigationCoordinator.swift in Sources */,
 				5F7CBB0F228622FE0094623A /* AppCoordinator.swift in Sources */,
-				5F7CBB0C228622FE0094623A /* BaseCoordinatorFromPresenting.swift in Sources */,
+				5F7CBB0C228622FE0094623A /* BasePresentingCoordinator.swift in Sources */,
 				5F7CBAED22861CA50094623A /* ViewController.swift in Sources */,
 				5F7CBB13228623370094623A /* MainCoordinator.swift in Sources */,
 				5F7CBB07228622D20094623A /* Coordinator.swift in Sources */,
 				5F7CBB06228622D20094623A /* BackwardConscious.swift in Sources */,
 				5F7CBAEB22861CA50094623A /* AppDelegate.swift in Sources */,
 				5F7CBB0122861DB10094623A /* SettingsViewController.swift in Sources */,
-				5F7CBB0D228622FE0094623A /* BaseCoordinator.swift in Sources */,
+				5F7CBB15228629BF0094623A /* OperationCoordinator.swift in Sources */,
+				5F7CBB0D228622FE0094623A /* BaseVersatileCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
