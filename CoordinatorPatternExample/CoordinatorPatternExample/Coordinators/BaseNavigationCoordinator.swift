@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseCoordinatorFromNavigation: UICoordinatorFromNavigation {
+class BaseNavigationCoordinator: NavigationCoordinator {
   var removeChildHandler: ((Coordinator, [AnyHashable : Any]?) -> Void)?
   
   var navigationController: UINavigationController?

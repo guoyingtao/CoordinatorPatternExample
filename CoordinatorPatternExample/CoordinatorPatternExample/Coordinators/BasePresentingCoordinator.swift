@@ -1,5 +1,5 @@
 //
-//  BaseCoordinatorFromPresenting.swift
+//  BasePresentingCoordinator.swift
 //  SmartRecorder
 //
 //  Created by Echo on 5/7/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseCoordinatorFromPresenting: UICoordinatorFromPresenting {
+class BasePresentingCoordinator: PresentingCoordinator {
   var removeChildHandler: ((Coordinator, [AnyHashable : Any]?) -> Void)?
   
   required init(presentingViewController: UIViewController?, parent: Coordinator?) {

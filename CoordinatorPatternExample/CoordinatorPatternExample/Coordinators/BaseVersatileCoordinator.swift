@@ -1,5 +1,5 @@
 //
-//  BaseCoordinator.swift
+//  BaseVersatileCoordinator.swift
 //  SmartRecorder
 //
 //  Created by Echo on 5/7/19.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class BaseCoordinator: UICoordinator {
+class BaseVersatileCoordinator: VersatileCoordinator {
   var removeChildHandler: ((Coordinator, [AnyHashable : Any]?) -> Void)?
   
   var navigationController: UINavigationController?
   
   deinit {
-    print("BaseCoordinator deinit")
+    print("BaseVersatileCoordinator deinit")
   }
   
   required init(navigationController: UINavigationController?, parent: Coordinator?) {
