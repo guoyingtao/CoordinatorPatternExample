@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoordinatorPatternExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCU-9d-BpF">
+                                <rect key="frame" x="137" y="515" width="140" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Operation: +"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZf-1C-tyb">
+                                <rect key="frame" x="139" y="585" width="136" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Operation: -"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Result" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TRV-eI-fIC">
+                                <rect key="frame" x="103.5" y="292" width="207" height="81"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C3V-U9-Nqy">
+                                <rect key="frame" x="103.5" y="412.5" width="207" height="81"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="dZf-1C-tyb" firstAttribute="top" secondItem="GCU-9d-BpF" secondAttribute="bottom" constant="26" id="8gh-fe-wDb"/>
+                            <constraint firstItem="C3V-U9-Nqy" firstAttribute="top" secondItem="TRV-eI-fIC" secondAttribute="bottom" constant="39.5" id="G4Y-es-mCf"/>
+                            <constraint firstItem="TRV-eI-fIC" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="OsY-e3-oxr"/>
+                            <constraint firstItem="C3V-U9-Nqy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="QY7-Sv-Lix"/>
+                            <constraint firstItem="GCU-9d-BpF" firstAttribute="top" secondItem="C3V-U9-Nqy" secondAttribute="bottom" constant="21.5" id="a0B-Ok-IGk"/>
+                            <constraint firstItem="TRV-eI-fIC" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="cAm-Ed-9iU"/>
+                            <constraint firstItem="C3V-U9-Nqy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="h0e-T5-1B7"/>
+                            <constraint firstItem="GCU-9d-BpF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="h8j-Qc-5uu"/>
+                            <constraint firstItem="dZf-1C-tyb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lfo-Xv-TLZ"/>
+                            <constraint firstItem="C3V-U9-Nqy" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="ueF-Z6-IEN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Tqv-Pc-Mrp" appends="YES" id="8iQ-MW-SQI"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="numberTextField" destination="C3V-U9-Nqy" id="zzf-dQ-vh8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Tqv-Pc-Mrp" userLabel="Tap on View">
+                    <connections>
+                        <action selector="viewTapped:" destination="BYZ-38-t0r" id="IPV-nT-Jsb"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="150.72463768115944" y="118.52678571428571"/>
+        </scene>
+        <!--Operation View Controller-->
+        <scene sceneID="3UF-NU-jDx">
+            <objects>
+                <viewController id="oFk-js-fYO" customClass="OperationViewController" customModule="CoordinatorPatternExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IKz-Lo-K15">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="a1B-da-03b"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fke-9K-E4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="875" y="119"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="lmR-6w-Zsy">
+            <objects>
+                <tableViewController id="ciX-dk-KY6" customClass="SettingsViewController" customModule="CoordinatorPatternExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KOI-tW-423">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="k0f-6r-IZ2">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k0f-6r-IZ2" id="psn-Vw-ItV">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ciX-dk-KY6" id="IH2-Ig-U8y"/>
+                            <outlet property="delegate" destination="ciX-dk-KY6" id="0p4-jz-Chs"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hah-zN-Cqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1683" y="119"/>
+        </scene>
+    </scenes>
+</document>
