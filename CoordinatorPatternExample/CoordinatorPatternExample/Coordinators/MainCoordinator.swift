@@ -25,12 +25,20 @@ class MainCoordinator: BaseNavigationCoordinator {
             self?.presentOperation(with: number, presentingViewController: vc)
         }
         
+        vc.showSettings = { [weak self, weak vc] in
+            self?.presentSettings(with: vc)
+        }
+        
         removeChildHandler = { [weak vc] child, info in
-            guard let result = info?["result"] as? Int else {
+            if child is OperationCoordinator, let result = info?["result"] as? Int  {
+                vc?.setResult(result)
                 return
             }
             
-            vc?.setResult(result)
+            if child is SettingsCoordinator, let number = info?["initialNumber"] as? Int {
+                vc?.setInitialNumber(number)
+                return
+            }            
         }
         
         navigate(vc, by: navigationController, animated: false)
@@ -45,4 +53,9 @@ class MainCoordinator: BaseNavigationCoordinator {
         let coordinator = OperationCoordinator(number: number, mode: .subtraction, presentingViewController: presentingViewController, parent: self)
         coordinate(with: coordinator)
     }
+    
+    func presentSettings(with presentingViewController: UIViewController?) {
+        let coordinator = SettingsCoordinator(presentingViewController: presentingViewController, parent: self)
+        coordinate(with: coordinator)
+    }    
 }

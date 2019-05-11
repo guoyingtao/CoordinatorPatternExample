@@ -22,6 +22,7 @@
 		5F7CBB0F228622FE0094623A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB0B228622FE0094623A /* AppCoordinator.swift */; };
 		5F7CBB13228623370094623A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB12228623370094623A /* MainCoordinator.swift */; };
 		5F7CBB15228629BF0094623A /* OperationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB14228629BF0094623A /* OperationCoordinator.swift */; };
+		5F7CBB17228722850094623A /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CBB16228722850094623A /* SettingsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5F7CBB0B228622FE0094623A /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		5F7CBB12228623370094623A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		5F7CBB14228629BF0094623A /* OperationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCoordinator.swift; sourceTree = "<group>"; };
+		5F7CBB16228722850094623A /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +76,9 @@
 		5F7CBAE922861CA50094623A /* CoordinatorPatternExample */ = {
 			isa = PBXGroup;
 			children = (
+				5F7CBB182287258F0094623A /* Controllers */,
 				5F7CBB03228622A40094623A /* Coordinators */,
 				5F7CBB022286226B0094623A /* Protocols */,
-				5F7CBAEC22861CA50094623A /* ViewController.swift */,
-				5F7CBAFE22861D470094623A /* OperationViewController.swift */,
-				5F7CBB0022861DB10094623A /* SettingsViewController.swift */,
 				5F7CBAEE22861CA50094623A /* Main.storyboard */,
 				5F7CBAEA22861CA50094623A /* AppDelegate.swift */,
 				5F7CBAF122861CA70094623A /* Assets.xcassets */,
@@ -106,8 +106,19 @@
 				5F7CBB08228622FE0094623A /* BasePresentingCoordinator.swift */,
 				5F7CBB12228623370094623A /* MainCoordinator.swift */,
 				5F7CBB14228629BF0094623A /* OperationCoordinator.swift */,
+				5F7CBB16228722850094623A /* SettingsCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		5F7CBB182287258F0094623A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5F7CBAEC22861CA50094623A /* ViewController.swift */,
+				5F7CBAFE22861D470094623A /* OperationViewController.swift */,
+				5F7CBB0022861DB10094623A /* SettingsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 			files = (
 				5F7CBAFF22861D470094623A /* OperationViewController.swift in Sources */,
 				5F7CBB0E228622FE0094623A /* BaseNavigationCoordinator.swift in Sources */,
+				5F7CBB17228722850094623A /* SettingsCoordinator.swift in Sources */,
 				5F7CBB0F228622FE0094623A /* AppCoordinator.swift in Sources */,
 				5F7CBB0C228622FE0094623A /* BasePresentingCoordinator.swift in Sources */,
 				5F7CBAED22861CA50094623A /* ViewController.swift in Sources */,

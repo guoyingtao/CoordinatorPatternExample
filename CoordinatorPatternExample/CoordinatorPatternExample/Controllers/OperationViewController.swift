@@ -16,8 +16,14 @@ class OperationViewController: UIViewController, BackwardConscious {
     
     var number = 0
     var mode: OperationMode = .add
-    var varibleNumber = 10
-    var result = 0
+    
+    private let varibleNumber = 10
+    
+    private var result = 0 {
+        didSet {
+            resultLabel.text = "\(result)"
+        }
+    }
 
     @IBOutlet var numberLabel: UILabel!
     @IBOutlet var operationLabel: UILabel!
@@ -32,20 +38,16 @@ class OperationViewController: UIViewController, BackwardConscious {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settingsButtonTapped))
-        
         switch mode {
         case .add:
             operationLabel.text = "+"
         default:
             operationLabel.text = "-"
         }
-        
+                
         result = number
-        
         numberLabel.text = "\(number)"
         varibleNumberLabel.text = "\(varibleNumber)"
-        resultLabel.text = "\(result)"
     }
     
     
@@ -56,7 +58,6 @@ class OperationViewController: UIViewController, BackwardConscious {
         default:
             result -= varibleNumber
         }
-        resultLabel.text = "\(result)"
     }
     
     @objc func settingsButtonTapped() {

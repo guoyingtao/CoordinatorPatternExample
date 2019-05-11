@@ -12,10 +12,17 @@ class ViewController: UIViewController {
     // MARK: navigation
     var showOperationAdd: ((_ number: Int)->Void)?
     var showOperationSubtraction: ((_ nubmer: Int)->Void)?
+    var showSettings: (()->Void)?
     
     @IBOutlet var resultField: UITextField!
     
     @IBOutlet var numberTextField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(showSettingsAction))
+    }
     
     func getNumber() -> Int {
         if let text = numberTextField.text {
@@ -37,8 +44,16 @@ class ViewController: UIViewController {
         showOperationSubtraction?(getNumber())
     }
     
+    @objc func showSettingsAction() {
+        showSettings?()
+    }
+    
     func setResult(_ result: Int) {
         resultField.text = "\(result)"
+    }
+    
+    func setInitialNumber(_ number: Int) {
+        numberTextField.text = "\(number)"
     }
 }
 
