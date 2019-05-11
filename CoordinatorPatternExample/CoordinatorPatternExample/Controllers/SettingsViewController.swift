@@ -24,7 +24,7 @@ class SettingsViewController: UITableViewController, BackwardConscious {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        checkIsBacking(with: ["initialNumber": initialNumber])
+        checkIsBackingWard(with: ["initialNumber": initialNumber])
     }
     
     override func viewDidLoad() {

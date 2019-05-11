@@ -14,8 +14,7 @@ class ViewController: UIViewController {
     var showOperationSubtraction: ((_ nubmer: Int)->Void)?
     var showSettings: (()->Void)?
     
-    @IBOutlet var resultField: UITextField!
-    
+    @IBOutlet var resultField: UITextField!    
     @IBOutlet var numberTextField: UITextField!
     
     override func viewDidLoad() {

@@ -29,7 +29,7 @@ class OperationViewController: UIViewController, BackwardConscious {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        checkIsBacking(with: ["result": result])
+        checkIsBackingWard(with: ["result": result])
     }
     
     override func viewDidLoad() {

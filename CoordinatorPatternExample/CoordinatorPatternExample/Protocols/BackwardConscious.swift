@@ -12,12 +12,12 @@ protocol BackwardConscious where Self: UIViewController {
     var backwardHandler: ((_ userInfo: [AnyHashable: Any]?)->Void)? { get set }
     
     /// Put this function inside the override function ViewWillDisappear(:)
-    func checkIsBacking(with userInfo: [AnyHashable: Any]?)
+    func checkIsBackingWard(with userInfo: [AnyHashable: Any]?)
 }
 
 extension BackwardConscious {
     
-    func checkIsBacking(with userInfo: [AnyHashable: Any]? = nil) {
+    func checkIsBackingWard(with userInfo: [AnyHashable: Any]? = nil) {
         if isMovingFromParent {
             backwardHandler?(userInfo)
         } else {
