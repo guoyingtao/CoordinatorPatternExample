@@ -22,8 +22,8 @@ class SettingsCoordinator: BasePresentingCoordinator {
         vc.showInfo = { [weak self] in
             self?.navigateToInfo(with: nc)
         }
-
-        present(nc, by: presentingViewController)
+        
+        present(vc, with: nc, by: presentingViewController)
     }
     
     @objc func close() {

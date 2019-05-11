@@ -11,9 +11,6 @@ import UIKit
 class OperationViewController: UIViewController, BackwardConscious {
     var backwardHandler: (([AnyHashable : Any]?) -> Void)?
     
-    // MARK: navigation
-    var showSetting: (()->Void)?
-    
     var number = 0
     var mode: OperationMode = .add
     
@@ -59,11 +56,7 @@ class OperationViewController: UIViewController, BackwardConscious {
             result -= varibleNumber
         }
     }
-    
-    @objc func settingsButtonTapped() {
-        showSetting?()
-    }
-    
+        
     @objc func close() {
         dismiss(animated: true)
     }

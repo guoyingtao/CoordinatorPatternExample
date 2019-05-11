@@ -63,11 +63,7 @@ class OperationCoordinator: BaseVersatileCoordinator {
         
         let nc = UINavigationController(rootViewController: vc)
         
-        vc.showSetting = { [weak self, weak nc] in
-            self?.showSettings(navigationController: nc)
-        }
-        
-        present(nc, by: presentingVC)
+        present(vc, with: nc, by: presentingVC)
     }
     
     override func start(from navigationController: UINavigationController) {
@@ -75,18 +71,6 @@ class OperationCoordinator: BaseVersatileCoordinator {
             return
         }
         
-        vc.showSetting = { [weak self, weak navigationController] in
-            self?.showSettings(navigationController: navigationController)
-        }
-
         navigate(vc, by: navigationController)
-    }
-    
-    func showSettings(navigationController: UINavigationController?) {
-        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController else {
-            return
-        }
-        
-        navigationController?.pushViewController(vc, animated: true)
-    }
+    }    
 }

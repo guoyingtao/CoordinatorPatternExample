@@ -41,7 +41,7 @@ class MainCoordinator: BaseNavigationCoordinator {
             }            
         }
         
-        navigate(vc, by: navigationController, animated: false)
+        navigationController?.pushViewController(vc, animated: false)
     }
     
     func navigateToOperation(with number: Int) {

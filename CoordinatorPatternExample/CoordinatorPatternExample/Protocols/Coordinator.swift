@@ -31,11 +31,9 @@ extension Coordinator  {
         }
     }
     
-    func setDefaultBackwardHandler(with viewController: UIViewController) {
-        if let vc = viewController as? BackwardConscious {
-            vc.backwardHandler = { [weak self] userInfo in
-                self?.didFinish(with: userInfo)
-            }
+    func setDefaultBackwardHandler(with viewController: BackwardConscious) {
+        viewController.backwardHandler = { [weak self] userInfo in
+            self?.didFinish(with: userInfo)
         }
     }
     
@@ -53,35 +51,37 @@ extension Coordinator  {
     }
 }
 
+// MARK: PresentingCoordinator
 protocol PresentingCoordinator: Coordinator {
     var presentingViewController: UIViewController? { get set }
     init(presentingViewController: UIViewController?, parent: Coordinator?)
 }
 
 extension PresentingCoordinator {
-    func present(_ viewController: UIViewController, by presentingViewController: UIViewController?, animated: Bool = true) {
+    func present(_ viewController: BackwardConscious, with navagitionController: UINavigationController? = nil, by presentingViewController: UIViewController?, animated: Bool = true) {
         
         guard let presentingViewController = presentingViewController else {
             return
         }
         
-        if let nc = viewController as? UINavigationController, let vc = nc.viewControllers.first {
-            setDefaultBackwardHandler(with: vc)
-        } else {
-            setDefaultBackwardHandler(with: viewController)
-        }
+        setDefaultBackwardHandler(with: viewController)
         
-        presentingViewController.present(viewController, animated: animated)
+        if let nc = navagitionController {
+            presentingViewController.present(nc, animated: animated)
+        } else {
+            presentingViewController.present(viewController, animated: animated)
+        }
     }
 }
 
+// MARK: NavigationCoordinator
 protocol NavigationCoordinator: Coordinator {
     var navigationController: UINavigationController? { get set }
     init(navigationController: UINavigationController?, parent: Coordinator?)
 }
 
 extension NavigationCoordinator {
-    func navigate(_ viewController: UIViewController, by navigationController: UINavigationController?, animated: Bool = true) {
+    func navigate(_ viewController: BackwardConscious, by navigationController: UINavigationController?, animated: Bool = true) {
         guard let navigationController = navigationController else {
             return
         }
@@ -91,6 +91,7 @@ extension NavigationCoordinator {
     }
 }
 
+// MARK: VersatileCoordinator
 protocol VersatileCoordinator: NavigationCoordinator, PresentingCoordinator {
     func start(from navigationController: UINavigationController)
     func start(from presentVC: UIViewController)
