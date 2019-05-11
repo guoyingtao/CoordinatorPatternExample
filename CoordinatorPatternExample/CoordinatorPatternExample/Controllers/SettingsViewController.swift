@@ -32,7 +32,6 @@ class SettingsViewController: UITableViewController, BackwardConscious {
         tableView.tableFooterView = UIView()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Info", style: .plain, target: self, action: #selector(showInfoAction))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(close))
         
         initialNumber = 100        
         stepper.maximumValue = 10000
@@ -44,10 +43,6 @@ class SettingsViewController: UITableViewController, BackwardConscious {
         showInfo?()
     }
     
-    @objc func close() {
-        dismiss(animated: true)
-    }
-
     @IBAction func stepperTapped(_ stepper: UIStepper) {
         initialNumber = Int(stepper.value)
     }

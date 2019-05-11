@@ -15,12 +15,19 @@ class SettingsCoordinator: BasePresentingCoordinator {
             return
         }
         
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(close))
+
+        
         let nc = UINavigationController(rootViewController: vc)
         vc.showInfo = { [weak self] in
             self?.navigateToInfo(with: nc)
         }
 
         present(nc, by: presentingViewController)
+    }
+    
+    @objc func close() {
+        presentingViewController?.dismiss(animated: true)
     }
     
     func navigateToInfo(with navigationController: UINavigationController) {
