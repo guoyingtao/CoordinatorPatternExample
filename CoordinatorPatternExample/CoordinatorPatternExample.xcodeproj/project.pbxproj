@@ -76,11 +76,11 @@
 			children = (
 				5F7CBB03228622A40094623A /* Coordinators */,
 				5F7CBB022286226B0094623A /* Protocols */,
-				5F7CBB0022861DB10094623A /* SettingsViewController.swift */,
-				5F7CBAEA22861CA50094623A /* AppDelegate.swift */,
 				5F7CBAEC22861CA50094623A /* ViewController.swift */,
 				5F7CBAFE22861D470094623A /* OperationViewController.swift */,
+				5F7CBB0022861DB10094623A /* SettingsViewController.swift */,
 				5F7CBAEE22861CA50094623A /* Main.storyboard */,
+				5F7CBAEA22861CA50094623A /* AppDelegate.swift */,
 				5F7CBAF122861CA70094623A /* Assets.xcassets */,
 				5F7CBAF322861CA70094623A /* LaunchScreen.storyboard */,
 				5F7CBAF622861CA70094623A /* Info.plist */,

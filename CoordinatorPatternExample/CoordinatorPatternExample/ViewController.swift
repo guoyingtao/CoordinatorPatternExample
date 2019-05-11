@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     // MARK: navigation
     var showOperationAdd: ((_ number: Int)->Void)?
-    var showOperationSubstraction: ((_ nubmer: Int)->Void)?
+    var showOperationSubtraction: ((_ nubmer: Int)->Void)?
     
     @IBOutlet var resultField: UITextField!
     
@@ -33,8 +33,8 @@ class ViewController: UIViewController {
         showOperationAdd?(getNumber())
     }
     
-    @IBAction func operationSubstractionTapped(_ sender: Any) {
-        showOperationSubstraction?(getNumber())
+    @IBAction func operationSubtractionTapped(_ sender: Any) {
+        showOperationSubtraction?(getNumber())
     }
     
     func setResult(_ result: Int) {

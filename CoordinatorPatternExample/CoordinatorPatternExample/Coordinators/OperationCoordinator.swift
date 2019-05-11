@@ -8,18 +8,30 @@
 
 import UIKit
 
+enum OperationMode {
+    case add
+    case subtraction
+}
+
 class OperationCoordinator: BaseVersatileCoordinator {
     
     var number: Int?
+    var mode: OperationMode = .add
     
-    convenience init(number: Int, navigationController: UINavigationController?, parent: Coordinator?) {
-        self.init(navigationController: navigationController, parent: parent)
-        self.number = number
+    deinit {
+        print("OperationCoordinator deinit")
     }
     
-    convenience init(number: Int, presentingViewController: UIViewController?, parent: Coordinator?) {
+    convenience init(number: Int, mode: OperationMode, navigationController: UINavigationController?, parent: Coordinator?) {
+        self.init(navigationController: navigationController, parent: parent)
+        self.number = number
+        self.mode = mode
+    }
+    
+    convenience init(number: Int, mode: OperationMode, presentingViewController: UIViewController?, parent: Coordinator?) {
         self.init(presentingViewController: presentingViewController, parent: parent)
         self.number = number
+        self.mode = mode
     }
     
     required init(navigationController: UINavigationController?, parent: Coordinator?) {
@@ -37,6 +49,8 @@ class OperationCoordinator: BaseVersatileCoordinator {
         }
         
         vc.number = number
+        vc.mode = mode
+                
         return vc
     }
     
@@ -45,20 +59,34 @@ class OperationCoordinator: BaseVersatileCoordinator {
             return
         }
         
-        vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: vc, action: #selector(OperationViewController.close))
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: vc, action: #selector(OperationViewController.close))
         
         let nc = UINavigationController(rootViewController: vc)
-        presentingVC.present(nc, animated: true)
+        
+        vc.showSetting = { [weak self, weak nc] in
+            self?.showSettings(navigationController: nc)
+        }
+        
+        present(nc, by: presentingVC)
     }
     
     override func start(from navigationController: UINavigationController) {
         guard let vc = createOperationViewController(with: number) else {
             return
         }
-        navigationController.pushViewController(vc, animated: true)
+        
+        vc.showSetting = { [weak self, weak navigationController] in
+            self?.showSettings(navigationController: navigationController)
+        }
+
+        navigate(vc, by: navigationController)
     }
     
-    func showSettings() {
+    func showSettings(navigationController: UINavigationController?) {
+        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController else {
+            return
+        }
         
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
