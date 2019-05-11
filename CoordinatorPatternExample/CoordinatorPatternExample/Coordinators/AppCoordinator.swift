@@ -19,6 +19,8 @@ class AppCoordinator: NSObject, Coordinator {
     private let window: UIWindow
     
     init(window: UIWindow) {
+        UIViewController.classInit
+        
         self.window = window
         self.navigationController = UINavigationController()
         

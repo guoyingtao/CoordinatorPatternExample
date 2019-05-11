@@ -16,7 +16,7 @@ class OperationViewController: UIViewController, BackwardConscious {
     
     private let varibleNumber = 10
     
-    private var result = 0 {
+    var result = 0 {
         didSet {
             resultLabel.text = "\(result)"
         }
@@ -26,11 +26,6 @@ class OperationViewController: UIViewController, BackwardConscious {
     @IBOutlet var operationLabel: UILabel!
     @IBOutlet var varibleNumberLabel: UILabel!
     @IBOutlet var resultLabel: UILabel!
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        checkIsBackingWard(with: ["result": result])
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +42,6 @@ class OperationViewController: UIViewController, BackwardConscious {
         varibleNumberLabel.text = "\(varibleNumber)"
     }
     
-    
     @IBAction func run(_ sender: Any) {
         switch mode {
         case .add:
@@ -59,5 +53,9 @@ class OperationViewController: UIViewController, BackwardConscious {
         
     @objc func close() {
         dismiss(animated: true)
+    }
+    
+    func getUserInfo() -> [AnyHashable : Any]? {
+        return ["result": result]
     }
 }

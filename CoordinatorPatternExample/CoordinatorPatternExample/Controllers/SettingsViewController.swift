@@ -22,11 +22,6 @@ class SettingsViewController: UITableViewController, BackwardConscious {
     @IBOutlet var stepper: UIStepper!
     @IBOutlet var numberLabel: UILabel!
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        checkIsBackingWard(with: ["initialNumber": initialNumber])
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -45,5 +40,9 @@ class SettingsViewController: UITableViewController, BackwardConscious {
     
     @IBAction func stepperTapped(_ stepper: UIStepper) {
         initialNumber = Int(stepper.value)
+    }
+    
+    func getUserInfo() -> [AnyHashable : Any]? {
+        return ["initialNumber": initialNumber]
     }
 }
