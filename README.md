@@ -1,7 +1,7 @@
 # CoordinatorPatternExample
 My practice of applying coordinator pattern in an iOS project
 
-- Granularity
+## Granularity
   - App coordinator
   - Main coordinator
   - Other child coordinators
@@ -22,9 +22,30 @@ My practice of applying coordinator pattern in an iOS project
   If the view controller can be pushed and presented, then use BaseVersatileCoordinator as its parent class.
   
 
-- How to handle backward events
+## How to handle backward events
 Implementing a BackwardConscious protocol to make a view controller to know then it is being pushed back or dismissed.
 
-- How to pass value between coordinators
-From parent to child, use initial functions<br/>
-From child to parent, use closure when handling backward events.
+## How to pass value between coordinators<br/>
+
+### From parent to child, 
+use initial functions
+
+### From child to parent, use closure when handling backward events.
+
+- Make the view controller conforms BackwardConscious protocol
+- Implement getPassingInfo()
+- Set removeChildHandler inside the coordinator
+
+```ruby
+removeChildHandler = { [weak vc] child, info in
+            if child is OperationCoordinator, let result = info?["result"] as? Int  {
+                vc?.setResult(result)
+                return
+            }
+            
+            if child is SettingsCoordinator, let number = info?["initialNumber"] as? Int {
+                vc?.setInitialNumber(number)
+                return
+            }            
+        }
+```
