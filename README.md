@@ -12,7 +12,7 @@ My practice of applying coordinator pattern in an iOS project
   
   So bedisde Coordinator protocol, I make PresentingCoordinator and NavigationCoordinator too. They both conform to Coordinator protocol but have their own navigation functions.
   
-  Also, to make things more easier, I made three base classes
+  Also, to make things easier, I made three base classes
   1. class BasePresentingCoordinator: PresentingCoordinator
   2. class BaseNavigationCoordinator: NavigationCoordinator
   3. class BaseVersatileCoordinator: VersatileCoordinator (VersatileCoordinator:PresentingCoordinator,  NavigationCoordinator)
