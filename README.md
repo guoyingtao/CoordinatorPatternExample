@@ -4,7 +4,7 @@ My practice of applying coordinator pattern in an iOS project
 - Granularity
   - App coordinator
   - Main coordinator
-  - Other child coordinator
+  - Other child coordinators
   
   Usually, nagivation includes 
   1. using navigation controller to push a view controller to its child view controllers stack
@@ -16,6 +16,10 @@ My practice of applying coordinator pattern in an iOS project
   1. class BasePresentingCoordinator: PresentingCoordinator
   2. class BaseNavigationCoordinator: NavigationCoordinator
   3. class BaseVersatileCoordinator: VersatileCoordinator (VersatileCoordinator:PresentingCoordinator,  NavigationCoordinator)
+  
+  For a child coordinator, if the view controller it manages is being pushed by a navigation controller, choose NavigationCoordinator as its parent class and use navigate(:::) to show the view controller.</br>
+  if the view controller it manages is being presented, choose PresentingCoordinator as its parent class and use present(:::) to show the view controller.</br>
+  If the view controller can be pushed and presented, then use BaseVersatileCoordinator as its parent class.
   
 
 - How to handle backward events
