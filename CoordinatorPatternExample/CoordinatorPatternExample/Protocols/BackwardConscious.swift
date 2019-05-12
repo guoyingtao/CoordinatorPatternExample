@@ -12,7 +12,7 @@ protocol BackwardConscious where Self: UIViewController {
     var backwardHandler: ((_ passingInfo: [AnyHashable: Any]?)->Void)? { get set }
     
     func getPassingInfo() -> [AnyHashable: Any]?
-    func checkIsBackingWard(with passingInfo: [AnyHashable: Any]?)
+    func backwardCheck(with passingInfo: [AnyHashable: Any]?)
 }
 
 extension BackwardConscious {
