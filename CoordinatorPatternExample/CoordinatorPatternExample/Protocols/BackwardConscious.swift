@@ -20,7 +20,7 @@ extension BackwardConscious {
         return nil
     }
     
-    func checkIsBackingWard(with passingInfo: [AnyHashable: Any]? = nil) {
+    func backwardCheck(with passingInfo: [AnyHashable: Any]? = nil) {
         if isMovingFromParent {
             backwardHandler?(passingInfo)
         } else {
@@ -55,7 +55,7 @@ extension UIViewController {
         swizzledViewWillDisappear(animated)
         
         if let vc = self as? BackwardConscious {
-            vc.checkIsBackingWard(with: vc.getPassingInfo())
+            vc.backwardCheck(with: vc.getPassingInfo())
         }
     }
     
