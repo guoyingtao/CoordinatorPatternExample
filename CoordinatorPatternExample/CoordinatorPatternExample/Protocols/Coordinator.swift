@@ -24,8 +24,7 @@ protocol Coordinator: class {
 
 extension Coordinator  {
     func didFinish(with userInfo: [AnyHashable: Any]? = nil) {
-        if let parent = parent {
-            
+        if let parent = parent {            
             parent.removeChildHandler?(self, userInfo)
             parent.remove(childCoordinator: self)
         }
