@@ -42,7 +42,7 @@ class SettingsViewController: UITableViewController, BackwardConscious {
         initialNumber = Int(stepper.value)
     }
     
-    func getUserInfo() -> [AnyHashable : Any]? {
+    func getPassingInfo() -> [AnyHashable : Any]? {
         return ["initialNumber": initialNumber]
     }
 }

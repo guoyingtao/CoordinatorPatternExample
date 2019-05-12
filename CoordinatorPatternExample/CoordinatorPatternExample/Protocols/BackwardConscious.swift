@@ -9,29 +9,28 @@
 import UIKit
 
 protocol BackwardConscious where Self: UIViewController {
-    var backwardHandler: ((_ userInfo: [AnyHashable: Any]?)->Void)? { get set }
-    func getUserInfo() -> [AnyHashable: Any]?
+    var backwardHandler: ((_ passingInfo: [AnyHashable: Any]?)->Void)? { get set }
     
-    /// Put this function inside the override function ViewWillDisappear(:)
-    func checkIsBackingWard(with userInfo: [AnyHashable: Any]?)
+    func getPassingInfo() -> [AnyHashable: Any]?
+    func checkIsBackingWard(with passingInfo: [AnyHashable: Any]?)
 }
 
 extension BackwardConscious {
-    func getUserInfo() -> [AnyHashable: Any]? {
+    func getPassingInfo() -> [AnyHashable: Any]? {
         return nil
     }
     
-    func checkIsBackingWard(with userInfo: [AnyHashable: Any]? = nil) {
+    func checkIsBackingWard(with passingInfo: [AnyHashable: Any]? = nil) {
         if isMovingFromParent {
-            backwardHandler?(userInfo)
+            backwardHandler?(passingInfo)
         } else {
             if let navigationController = self.navigationController {
                 if navigationController.isBeingDismissed {
-                    backwardHandler?(userInfo)
+                    backwardHandler?(passingInfo)
                 }
             } else {
                 if isBeingDismissed {
-                    backwardHandler?(userInfo)
+                    backwardHandler?(passingInfo)
                 }
             }      
         }
@@ -52,11 +51,11 @@ extension UIViewController {
     }()
     
     @objc func swizzledViewWillDisappear(_ animated: Bool) {
-        // Call the original viewDidAppear - using the swizzledViewDidAppear signature
+        // Call the original viewDidDisappear - using the swizzledViewWillDisappear signature
         swizzledViewWillDisappear(animated)
         
         if let vc = self as? BackwardConscious {
-            vc.checkIsBackingWard(with: vc.getUserInfo())
+            vc.checkIsBackingWard(with: vc.getPassingInfo())
         }
     }
     

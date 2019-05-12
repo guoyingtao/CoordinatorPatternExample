@@ -55,7 +55,7 @@ class OperationViewController: UIViewController, BackwardConscious {
         dismiss(animated: true)
     }
     
-    func getUserInfo() -> [AnyHashable : Any]? {
+    func getPassingInfo() -> [AnyHashable : Any]? {
         return ["result": result]
     }
 }

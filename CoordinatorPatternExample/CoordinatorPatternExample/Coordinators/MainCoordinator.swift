@@ -9,8 +9,7 @@
 import UIKit
 
 class MainCoordinator: BaseNavigationCoordinator {
-    let id = "101"
-    
+
     override func start() {
         guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as? ViewController else {
             return
