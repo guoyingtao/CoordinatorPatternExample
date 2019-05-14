@@ -51,7 +51,7 @@ extension UIViewController {
     }()
     
     @objc func swizzledViewWillDisappear(_ animated: Bool) {
-        // Call the original viewDidDisappear - using the swizzledViewWillDisappear signature
+        // Call the original viewWillDisappear - using the swizzledViewWillDisappear signature
         swizzledViewWillDisappear(animated)
         
         if let vc = self as? BackwardConscious {
