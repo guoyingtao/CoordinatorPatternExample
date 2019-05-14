@@ -57,7 +57,7 @@ protocol PresentingCoordinator: Coordinator {
 }
 
 extension PresentingCoordinator {
-    func present(_ viewController: BackwardConscious, with navagitionController: UINavigationController? = nil, by presentingViewController: UIViewController?, animated: Bool = true) {
+    func present(_ viewController: BackwardConscious, with navigationController: UINavigationController? = nil, by presentingViewController: UIViewController?, animated: Bool = true) {
         
         guard let presentingViewController = presentingViewController else {
             return
@@ -65,7 +65,7 @@ extension PresentingCoordinator {
         
         setDefaultBackwardHandler(with: viewController)
         
-        if let nc = navagitionController {
+        if let nc = navigationController {
             presentingViewController.present(nc, animated: animated)
         } else {
             presentingViewController.present(viewController, animated: animated)
